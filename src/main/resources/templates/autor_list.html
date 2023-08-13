@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+ <head th:replace="/fragments/head :: head"> </head>
+    <body>
+           <nav th:replace="/fragments/navbar :: nav"> </nav>
+        <div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody th:each="autor : ${autores}">
+                    <tr> 
+                    <th th:text="${autor.id}"></th>
+                    <td th:text="${autor.nombre}" ></td>
+                    <td>
+                        <a th:href="@{/autor/modificar/__${autor.id}__}" > Modificar </a>
+                    </td>
+                    </tr>
+                </tbody>
+                
+                
+                
+            </table>
+            
+        </div>
+    </body>
+</html>

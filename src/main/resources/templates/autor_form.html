@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="/fragments/head :: head"> </head>
+    <body>
+          <nav th:replace="/fragments/navbar :: nav"> </nav>
+        <header> 
+            <h1>Carga el autor aqui!</h1>
+        </header>
+        <div>
+        <form action="/autor/registro" method="post" > 
+            <label>Ingrese el nombre del autor</label> <br>
+            <input name="nombre" type="text" placeholder="nombre del Autor">
+            <br>
+            <button type="submit" > subir </button> 
+        </form>
+        </div>
+        
+        <div th:if="${error != null}">
+            <div>
+                <h5>ERROR</h5>
+                <p th:text="${error}" ></p>
+            </div>
+                       
+        </div>
+        
+        <div th:if="${exito != null}">
+            <div>
+                <h5>EXITO!</h5>
+                <p  th:text="${exito}"></p>
+            </div>
+                       
+        </div>
+          
+        
+        
+        
+        
+        
+        
+    </body>
+</html>

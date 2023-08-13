@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head th:replace= "/fragments/head :: head" </head>
+
+    <body>
+        <nav th:replace="/fragments/navbar :: nav"> </nav>
+
+
+
+
+
+        <header>
+
+
+            <div>
+                <a  th:text="'Error ' + ${codigo}">BIBLIOTECA EGG</a>
+                <p  th:text="${mensaje}"> </p>
+
+            </div>
+
+
+            <div>
+              
+                <p  th:if="session.usuariosession != null" th:text="'HOLA USUARIO: '+ ${session.usuariosession.nombre} "  > </p>
+            </div>
+
+
+
+        </header>
+
+
+
+
+    </body>
+</html>

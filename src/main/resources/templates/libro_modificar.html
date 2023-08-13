@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Biblioteca</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+         
+        <div>
+            
+        <form th:action="@{/libro/modificar/__${libro.isbn}__}" method="post" > 
+            
+            <!-- hidden es para decir q estara oculto -->
+            
+            <input hidden th:value="${isbn}" name ="isbn">
+            
+            
+            <h2>Cargar libros</h2> <br>
+            
+            <label>Ingrese el nuevo titulo </label>
+            <input th:value="${libro.titulo}" name="titulo" type="text" placeholder="Titulo">
+            <br>
+            
+            <label>Ingrese el numero de ejemplares</label>
+            <input th:value="${libro.ejemplares}" name="ejemplares" type="number" placeholder="Ejemplares">
+            <br><!-- comment -->
+            
+           <div>
+                <select name= "idAutor">
+                    <option> SELECCIONAR AUTOR </option>
+                    <option th:each ="autor:${autores}"
+                            th:value ="${autor.id}" 
+                            th:text = ${autor.nombre}
+                            />
+                </select>
+            </div>
+
+            <div>
+                <select name= "idEditorial">
+                    <option> SELECCIONAR EDITORIAL </option>
+                    <option th:each ="editorial : ${editoriales}"
+                            th:value ="${editorial.id}" 
+                            th:text = ${editorial.nombre}
+                            />
+                </select>
+            </div>
+            
+            <button type="submit" > ACTUALIZAR </button> 
+            
+        </form>
+            
+        </div>
+               
+        
+        
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="/fragments/head :: head"> </head>
+
+
+    <header> 
+        <nav th:replace="/fragments/navbar :: nav"> </nav>
+        <h1>Carga el libro aqui!</h1>
+    </header>
+
+    <div>
+
+        <form action="/libro/registro" method="post" > 
+            <div>
+                <label>Isbn del Libro </label> <br>
+                <input name="isbn" type="text" placeholder="isbn">
+                <br>
+            </div>
+
+            <div>
+                <label>Titulo del Libro </label> <br>
+                <input name="titulo" type="text" placeholder="titulo">
+                <br>
+            </div>
+
+            <div>
+                <label>Cantidad de ejemplares</label> <br>
+                <input name="ejemplares" type="number" placeholder="ejemplares">
+                <br>
+            </div>
+
+            <div>
+                <select name= "idAutor">
+                    <option> SELECCIONAR AUTOR </option>
+                    <option th:each ="autor:${autores}"
+                            th:value ="${autor.id}" 
+                            th:text = ${autor.nombre}
+                            />
+                    <option> AGREGAR AUTOR </option> 
+                </select>
+            </div>
+            <div> <button href=""> AGREGAR AUTOR </button> 
+            </div>
+
+            <div>
+                <select name= "idEditorial">
+                    <option> SELECCIONAR EDITORIAL </option>
+                    <option th:each ="editorial : ${editoriales}"
+                            th:value ="${editorial.id}" 
+                            th:text = ${editorial.nombre}
+                            />
+
+                </select>
+
+
+            </div>
+            <div>
+                <a href=""> AGREGAR EDITORIAL </a> 
+            </div>
+
+
+
+
+
+            <button type="submit" > subir </button> 
+
+        </form>
+
+    </div>
+
+
+
+
+
+
+
+    <div th:if="${error != null}">
+        <div>
+            <h5>ERROR</h5>
+            <p th:text="${error}" ></p>
+        </div>
+
+    </div>
+
+    <div th:if="${exito != null}">
+        <div>
+            <h5>EXITO!</h5>
+            <p  th:text="${exito}"></p>
+        </div>
+
+    </div>
+
+
+
+
+</html>
